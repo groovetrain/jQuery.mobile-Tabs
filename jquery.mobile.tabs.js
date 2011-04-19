@@ -1,5 +1,12 @@
 /*
-* jQuery Mobile Framework : "tabs" plugin
+	@author Joel Greutman
+	@email joelgreutman@gmail.com
+	@website joelgreutman.com
+	
+	You are hereby granted to use/change this work free of charge, providing that credit is given to the
+	intial author.  Remember the Golden Rule.
+	
+	jQuery Mobile Framework : "tabs" widget plugin
 */
 (function($, undefined ) {
 $.widget( "mobile.tabs", $.mobile.widget, {

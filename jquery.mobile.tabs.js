@@ -1,12 +1,5 @@
 /*
-	@author Joel Greutman
-	@email joelgreutman@gmail.com
-	@website joelgreutman.com
-	
-	You are hereby granted to use/change this work free of charge, providing that credit is given to the
-	intial author.  Remember the Golden Rule.
-	
-	jQuery Mobile Framework : "tabs" widget plugin
+* jQuery Mobile Framework : "tabs" plugin
 */
 (function($, undefined ) {
 $.widget( "mobile.tabs", $.mobile.widget, {
@@ -44,13 +37,6 @@ $.widget( "mobile.tabs", $.mobile.widget, {
 			})
 			.removeClass('ui-link');
 
-		$tabs.delegate("a", "click",function(event){
-			$navbtns.removeClass( "ui-btn-active" );
-			$( this ).addClass( "ui-btn-active" );
-			event.preventDefault();
-			return false;
-		});
-
 		// Set up the direct children of the page as the tab content, hide them
 		$content.children().addClass('ui-tabs-content');
 		
@@ -60,13 +46,25 @@ $.widget( "mobile.tabs", $.mobile.widget, {
 		$content.children('#' + $navbtns.eq($this.currentTab()).attr('href')).addClass('ui-tabs-content-active');
 
 		$navbtns.bind('click', function(event) {
+			navButtonClick.call(this, event);
+			return false;
+		})
+		.bind('tap', function(event){
+			navButtonClick.call(this, event);
+			return false;
+		});
+		
+		function navButtonClick(event) {
+			$navbtns.removeClass( "ui-btn-active" );
+			$( this ).addClass( "ui-btn-active" );
 			$this.changeTab(event, {
 				currentTab: $navbtns.eq($this.currentTab()),
 				nextTab: $(this),
 				currentContent: $this.currentContent(),
 				nextContent: $content.children($(this).attr('href'))
 			});
-		});
+			event.preventDefault();
+		}
 
 		this._trigger('load', null, {
 			currentTab: $navbtns.eq($this.currentTab()),
@@ -83,7 +81,7 @@ $.widget( "mobile.tabs", $.mobile.widget, {
 	},
 	changeTab: function(event, ui) {
 		if( this._trigger('beforeTabHide', event, ui) )
-		ui.currentContent.siblings().andSelf().removeClass('ui-tabs-content-active');
+			ui.currentContent.siblings().andSelf().removeClass('ui-tabs-content-active');
 		if( this._trigger('beforeTabShow', event, ui) )
 			ui.nextContent.addClass('ui-tabs-content-active');
 		this._trigger('afterTabShow', event, $.extend({}, ui, { previousContent: ui.currentContent, currentContent: ui.nextContent, nextContent: null }));

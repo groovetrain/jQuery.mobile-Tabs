@@ -1,5 +1,5 @@
 /*
-* jQuery Mobile Tabs Plugin
+* jQuery Mobile Framework : "tabs" plugin
 * https://github.com/groovetrain/jQuery.mobile-Tabs
 *
 * Copyright 2011 (c) Joel Greutman

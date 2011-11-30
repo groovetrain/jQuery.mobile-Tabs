@@ -1,5 +1,12 @@
 /*
 * jQuery Mobile Framework : "tabs" plugin
+* https://github.com/groovetrain/jQuery.mobile-Tabs
+*
+* Copyright 2011 (c) Joel Greutman
+* joelgreutman@gmail.com
+* joelgreutman.com
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
 */
 (function($, undefined ) {
 $.widget( "mobile.tabs", $.mobile.widget, {

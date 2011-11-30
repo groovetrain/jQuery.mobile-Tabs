@@ -89,8 +89,6 @@ $.widget( "mobile.tabs", $.mobile.widget, {
 });
 })( jQuery );
 
-$(function() {
-	$('[data-role=page]').live('pagecreate', function(e) {
-		$(this).find('[data-role="tabs"]').tabs();
-	});
+$('[data-role=page]').live('pagecreate', function(e) {
+	$(this).find('[data-role="tabs"]').tabs();
 });
